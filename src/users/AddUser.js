@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function AddUser() {
 
@@ -17,6 +17,7 @@ export default function AddUser() {
     const onInputChange = (e) =>{
         setUser({...user,[e.target.name]:e.target.value})
     }
+
 
     const onSubmit = async(e) =>{
         e.preventDefault();
@@ -42,12 +43,12 @@ export default function AddUser() {
                             onChange={(e)=>onInputChange(e)}/>
                         </div>
                         <div className='mb-3'>
-                            <label htmlFor='Email' className='form-label'>E-maail</label>
+                            <label htmlFor='Email' className='form-label'>E-mail</label>
                             <input type='text' className='form-control' placeholder='Enter your e-mail' name='email' value={email}
                             onChange={(e)=>onInputChange(e)}/>
                         </div>
                         <button type='submit' className='btn btn-outline-primary'>Submit</button>
-                        <button type='submit' className='btn btn-outline-danger mx-2'>Cancel</button>
+                        <Link to="/" className='btn btn-outline-danger mx-2'>Cancel</Link>
                     </form>
                 </div>
             </div>
